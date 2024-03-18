@@ -1,0 +1,447 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:700|Poppins:400|Poppins:300&display=swap");
+
+:root {
+	--navbar: #333333;
+	--text: #fff;
+	--grayer-text: #ddd;
+	--primary: #ff3010;
+	--secondary: #ff8000;
+	--background: #005080;
+	--boxes: #507090;
+	--boxes-border: #406080;
+	--accent: #00b0a0;
+	--accent20: rgba(0, 176, 160, 0.2);
+	--accent40: rgba(0, 176, 160, 0.4);
+
+	--box-rounding-normal: 4px;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: "Poppins";
+	font-weight: 700;
+}
+
+html {
+	font-size: 100%;
+} /* 16px */
+
+h1 {
+	font-size: min(5.5vw, 68px);
+}
+
+h2 {
+	font-size: min(4.1vw, 50px);
+}
+
+h3 {
+	font-size: min(3.1vw, 38px);
+}
+
+p {
+	font-size: min(1.8vw, 22px);
+	color: var(--text);
+	margin-bottom: min(0.8vw, 10px);
+}
+
+body {
+	font-family: "Poppins";
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--text);
+	background-color: var(--background);
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+div {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Info */
+
+#contents {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-left: 12.5%;
+	max-width: 75%;
+}
+
+div#infoTable {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: 4px solid var(--boxes-border);
+	border-radius: var(--box-rounding-normal);
+	background-color: var(--boxes);
+}
+div#infoTable table {
+	display: block;
+	border-collapse: collapse;
+	height: 100%;
+}
+div#infoTable table tr {
+	display: table-row;
+}
+div#infoTable table tbody tr:nth-child(odd) {
+	background-color: var(--boxes-border);
+}
+div#infoTable table tr td {
+	display: table-cell;
+	padding: 10px;
+}
+div#infoTable table tr td a {
+	color: var(--text);
+	text-decoration: none;
+	transition: all 0.3s;
+	&:hover {
+		color: var(--accent);
+	}
+}
+div#infoTable table tr :first-child {
+	font-weight: 700;
+}
+ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#contents p a {
+	color: var(--text);
+	text-decoration: none;
+	font-weight: 700;
+	transition: all 0.3s;
+	&:hover {
+		color: var(--accent);
+	}
+}
+
+/* Navbar */
+#navbar {
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--navbar);
+}
+
+#navelements {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+#navlinks {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+#navlinks a,
+#navelements a {
+	font-size: min(3vw, 30px);
+	display: block;
+	color: var(--text);
+	text-decoration: none;
+	padding: min(0.8vh, 20px) min(1.6vh, 40px);
+	transition: color 0.3s;
+}
+
+#navlinks a:hover,
+#navlinks a:active,
+#navlinks a:focus,
+#navelements a:hover,
+#navelements a:active,
+#navelements a:focus {
+	color: var(--accent);
+}
+
+/* Søk (search-klassen) */
+.search {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	padding-top: min(0.8vw, 10px);
+}
+.search form input {
+	width: 320px;
+	height: 64px;
+	border: none;
+	border-radius: var(--box-rounding-normal);
+	font-size: 1.3rem;
+	background: none;
+	font-family: inherit;
+	color: var(--text);
+	text-align: center;
+	background-color: var(--accent20);
+	transition: all 0.3s;
+}
+.search form input::placeholder {
+	color: var(--greyDark);
+	font-style: italic;
+	font-weight: 300;
+}
+.search form input:focus {
+	background-color: var(--accent40);
+	transform: translateY(-0.05rem);
+	outline: none;
+	box-shadow: 0 0.5rem min(0.8vw, 10px) rgba(0, 0, 0, 0.2);
+}
+.search form button {
+	margin-top: min(0.8vw, 10px);
+	padding-top: auto;
+	width: 240px;
+	height: 64px;
+	border: none;
+	border-radius: var(--box-rounding-normal);
+	background-image: linear-gradient(135deg, var(--primary), var(--secondary));
+	font-size: 1.4rem;
+	color: var(--text);
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.search form button:hover {
+	background-image: linear-gradient(180deg, var(--primary), var(--secondary));
+	transform: translateY(-0.05rem);
+	box-shadow: 0 0.5rem min(0.8vw, 10px) rgba(0, 0, 0, 0.2);
+	color: var(--accent);
+}
+
+.search form button:active {
+	background-image: linear-gradient(225deg, var(--primary), var(--secondary));
+	transform: translateY(0.075rem);
+	box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+	color: transparent;
+}
+/* For farge, gradientene, er det benyttet ChatGPT, som en feilsøker når det ikke fungerte over gjentatte forsøk. */
+
+/* Results id-en */
+#results p {
+	font-size: 1.6rem;
+	font-weight: 300;
+	color: var(--text);
+	margin-bottom: min(0.8vw, 10px);
+	max-width: 80%;
+	text-align: center;
+}
+
+#results {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 5px;
+}
+#boxes {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-top: min(0.8vw, 10px);
+}
+
+#boxes div#listResult {
+	border-radius: var(--box-rounding-normal);
+	background-color: var(--boxes);
+	transition: all 0.3s;
+	margin: 10px;
+	width: 400px;
+	height: 220px;
+}
+
+/* Spiller Bokser*/
+#listResult {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 10px;
+	row-gap: 0px;
+}
+#listResult div {
+	height: 100px;
+	width: auto;
+}
+
+#listResult div#playerCard {
+	position: relative;
+	height: 100px;
+}
+#listResult div#playerCard h1#playerName {
+	position: absolute;
+	top: -10px;
+	left: 0px;
+	font-size: 34px;
+	margin: auto;
+	margin-left: 10px;
+	height: 45px;
+}
+#listResult div#playerCard p#playerID,
+#listResult div#playerCard p#playerID a {
+	display: inline;
+	font-size: 16px;
+	margin: auto;
+	margin-left: 7.5px;
+	color: var(--text);
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 0.3s;
+	position: absolute;
+	top: 18px;
+	left: -1px;
+	&:hover {
+		color: var(--accent);
+	}
+}
+#listResult div#bestShip {
+	position: relative;
+	height: 100px;
+}
+#listResult div#bestShip h2#shipName {
+	font-size: 22px;
+	white-space: nowrap;
+	position: absolute;
+	top: 24px;
+	right: 5px;
+	text-align: center;
+	& a {
+		color: var(--text);
+		text-decoration: none;
+		transition: all 0.3s;
+		&:hover {
+			color: var(--accent);
+		}
+	}
+}
+#listResult div#bestShip p#shipTier {
+	position: absolute;
+	top: 46px;
+	right: 2px;
+	font-weight: 700;
+	font-size: 20px;
+}
+#listResult div#bestShip #shipKills {
+	position: absolute;
+	top: 48px;
+	left: 10px;
+	font-size: 16px;
+}
+#listResult div#bestShip p#shipExp {
+	position: absolute;
+	top: 68px;
+	left: 10px;
+	font-size: 16px;
+}
+#listResult div#bestShip p#shipWinPercent {
+	position: absolute;
+	top: 88px;
+	left: 10px;
+	font-size: 16px;
+}
+#listResult div#bestShip img {
+	position: absolute;
+	top: 64px;
+	right: 0px;
+}
+#listResult div#additionalInfo {
+	position: relative;
+}
+#listResult div#additionalInfo h3 {
+	position: absolute;
+	top: 8px;
+	font-size: 22px;
+}
+#listResult div#additionalInfo p#accountLevel {
+	position: absolute;
+	top: 28px;
+	left: 5px;
+}
+#listResult div#additionalInfo p#joinedAt {
+	position: absolute;
+	top: 56px;
+	left: 5px;
+	font-weight: 300;
+	font-size: 18px;
+	white-space: nowrap;
+}
+#listResult div#additionalInfo p#karma {
+	position: absolute;
+	top: 76px;
+	left: 5px;
+	font-size: 18px;
+}
+#listResult div#pvpStats {
+	position: relative;
+	height: 100px;
+}
+#listResult #pvpStats h3 {
+	position: absolute;
+	top: 8px;
+	font-size: 22px;
+}
+#listResult #pvpStats p#totalBattles {
+	position: absolute;
+	top: 30px;
+	font-size: 16px;
+}
+#listResult #pvpStats p#wins {
+	position: absolute;
+	top: 48px;
+	font-size: 16px;
+}
+#listResult #pvpStats p#winRate {
+	position: absolute;
+	top: 66px;
+	font-size: 16px;
+}
+#listResult #pvpStats p#survivedBattles {
+	position: absolute;
+	top: 82px;
+	font-size: 16px;
+	white-space: nowrap;
+}
+/* Power Point*/
+#contentss {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 30px;
+	text-align: center;
+}
+#contentss iframe {
+	width: calc(76.805px * 13);
+	height: calc(46px * 13);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="no">
+	<head>
+		<meta charset="utf-8">
+		<title>WoWs Stats</title>
+		<meta name="description" content="World of Warships Statistikk">
+		<meta name="author" content="Christian Røren">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" href="https://promo-cdn.worldofwarships.com/global_static/favicon/v2/favicon-64x64.png" sizes="64x64">
+		<!--Stjal bildet fra nettsiden deres, privat bruk, ikke komersielt, skal være greit-->
+		<link rel="stylesheet" href="style.css">
+		<script src="main.js" type="module"></script>
+		<script src="index.js" type="module"></script>
+		<script src="secret.json" type="module"></script>
+	</head>
+	<body>
+		<div id="navbar"> <!--Denne er kopiert over til alle andre sider-->
+			<div id="navelements">
+				<div id="logo">
+					<a href="#"><h1>WoWs Stats</h1></a>
+				</div>
+				<div id="navlinks">
+					<a href="index.html">Hjem</a>
+					<a href="info.html">Info</a>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="search">
+				<form id="search-form">
+					<input type="text" id="search" name="search" placeholder="Skriv inn Navn/ID...">
+					<div id="search-btn">
+						<button type="submit">Søk</button>
+					</div>
+				</form>
+				<div id="results"></div>
+			</div>
+		</div>
+	</body>
+</html>
