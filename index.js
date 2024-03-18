@@ -207,6 +207,7 @@ searchForm.addEventListener("submit", async (e) => {
 				results.innerHTML = "<p>Feil ved henting av applikasjons-ID.</p>";
 				return;
 		}
+		
 		// localStorage.setItem("lastSearch", searchVal.value);
 		// disse neste linjene gjør at man ikke lagrer to søk oppåhverandre, det hadde laget kaos.
 		let data = null;
