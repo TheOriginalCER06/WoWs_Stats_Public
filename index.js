@@ -78,7 +78,7 @@ const tierTilInGameSymbol = (tall) => {
 };
 
 //Dette er hovedfunksjonen som viser dataen vi får fra api-en, og viser det på en fin måte. Samt at den kan nokså lett endres slik den viser det slik jeg vil.
-const visData = async (data, typeSearch, locId = 0) => { 
+const visData = async (appID_, data, typeSearch, locId = 0) => { 
 	results.innerHTML = "";
 	try {
 		switch (typeSearch) {
@@ -89,8 +89,8 @@ const visData = async (data, typeSearch, locId = 0) => {
 					const boxes = document.getElementById("boxes");
 					//Hente inn informasjonen fra de forskjellige api-sidene, som jeg har tenkt å bruke nå.
 					let maxFragShipId = data.data[locId].statistics.pvp.max_xp_ship_id;
-					let shipData = await get_shipData_ID(get_appID(), maxFragShipId);
-					let playersShipData = await get_playerShipData_ID(get_appID(), locId, maxFragShipId);
+					let shipData = await get_shipData_ID(appID_, maxFragShipId);
+					let playersShipData = await get_playerShipData_ID(appID_, locId, maxFragShipId);
 					if (maxFragShipId === null || shipData.data[maxFragShipId] === null) {
 						maxFragShipId = null;
 						shipData.status = "error";
@@ -138,14 +138,14 @@ const visData = async (data, typeSearch, locId = 0) => {
 					const boxes = document.getElementById("boxes");
 					for (let i = 0; i < data.meta.count; i++) { //jeg kan sjekke nøyaktig hvor mange spillere jeg har fått, og slepper da å kjøre løkken unødig.
 						let currID = data.data[i].account_id;
-						let i_data = await get_playerData_ID(get_appID(), currID);
+						let i_data = await get_playerData_ID(appID_, currID);
 						if (i_data.data[currID].hidden_profile === true) {
 							continue;
 						}
 						
 						let maxFragShipId = i_data.data[currID].statistics.pvp.max_xp_ship_id;
-						let shipData = await get_shipData_ID(get_appID(), maxFragShipId);
-						let playersShipData = await get_playerShipData_ID(get_appID(), currID, maxFragShipId);
+						let shipData = await get_shipData_ID(appID_, maxFragShipId);
+						let playersShipData = await get_playerShipData_ID(appID_, currID, maxFragShipId);
 						if (maxFragShipId === null || shipData.data[maxFragShipId] === null) {
 							maxFragShipId = null;
 							shipData.status = "error";
@@ -202,6 +202,11 @@ searchForm.addEventListener("submit", async (e) => {
 	try {
 		const appID = get_appID();
 
+		switch (appID) { //Her sjekker jeg om appID-en er gyldig, og om ikke, så får brukeren beskjed om det.
+			case null:
+				results.innerHTML = "<p>Feil ved henting av applikasjons-ID.</p>";
+				return;
+		}
 		// localStorage.setItem("lastSearch", searchVal.value);
 		// disse neste linjene gjør at man ikke lagrer to søk oppåhverandre, det hadde laget kaos.
 		let data = null;
@@ -255,9 +260,9 @@ searchForm.addEventListener("submit", async (e) => {
 					}
 				} else {
 					if (localID !== undefined) { //Her er en liten sjekk for lokalt lagret verdier, for det kan hende en er lagret, denne er nå ikke i bruk, men vil bli brukt når jeg skal lagre søket til spilleren.
-						visData(data, typeOfSearch, localID);
+						visData(appID, data, typeOfSearch, localID);
 					} else {
-						visData(data, typeOfSearch, searchVal.value);
+						visData(appID, data, typeOfSearch, searchVal.value);
 						break;
 					}
 				}
