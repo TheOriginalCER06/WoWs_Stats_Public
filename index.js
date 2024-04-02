@@ -196,7 +196,7 @@ const visData = async (appID_, data, typeSearch, locId = 0) => {
 	}
 };
 //Om denne får en error
-
+// Her vil eventet kjøre når brukeren bruker knappen markert med "submit", den vil så kjøre følgende kode.
 searchForm.addEventListener("submit", async (e) => {
 	e.preventDefault();
 	try {
@@ -273,7 +273,7 @@ searchForm.addEventListener("submit", async (e) => {
 		return;
 	}
 });
-
+//Dette eventet under er når nettsiden er lastet inn, altså npr alt er "klart for bruk"
 document.addEventListener("DOMContentLoaded", () => { //Her fyller jeg inn automatisk søk, om det er lagret fra før. Skal foreløpig ikke være i bruk.
 	let lastSearch = localStorage.getItem("lastSearch");
 	if (lastSearch !== "") {
