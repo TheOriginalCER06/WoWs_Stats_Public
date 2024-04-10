@@ -107,7 +107,7 @@ const visData = async (appID_, data, typeSearch, locId = 0) => {
 											<p id="shipKills">${shipData.status === "error" ? "" : playersShipData.data[locId][0].pvp.frags + " frags"}</p>
 											<p id="shipExp">${shipData.status === "error" ? "" : playersShipData.data[locId][0].pvp.xp + " XP"}</p>
 											<p id="shipWinPercent">${shipData.status === "error" ? "" : Math.round((playersShipData.data[currID][0].pvp.wins / playersShipData.data[currID][0].pvp.battles) * 100) + "% wins"}</p>
-											<img src="${shipData.status === "error" ? "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" : shipData.data[maxFragShipId].images.small}" width="50%" alt="${shipData.description}">
+											<img src="${shipData.status === "error" ? "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" : shipData.data[maxFragShipId].images.small}" width="50%" alt="${shipData.data.description}">
 										</div>
 										<div id="additionalInfo">
 											<h3>Additional Info</h3>
